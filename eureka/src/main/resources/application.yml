@@ -1,0 +1,23 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: Eureka
+eureka:
+  instance:
+    hostname: localhost   # 配置用户主机名
+    ip-address: 192.168.1.120  # 配置当用注册中心服务IP
+    appname:  Eureka-sc     # 配置当前端自注册的服务名称， 如果没有配置则会取spring.application.name的值，否则会显示unknown
+  client:
+    #指定服务注册中心地址，类型为 HashMap，并设置有一组默认值，默认的Key为 defaultZone；默认的Value为 http://localhost:8761/eureka ，如果服务注册中心为高可用集群时，多个注册中心地址以逗号分隔。
+    #
+    #如果服务注册中心加入了安全验证，这里配置的地址格式为： http://<username>:<password>@localhost:8761/eureka 其中 <username> 为安全校验的用户名；<password> 为该用户的密码
+    service-url:
+      # 注意，Eureka的高可用配置就是采用多个Eureka服务二二进行相互注册，如果是只有二个Eureka，那么就让二个Eureka-Server进行相互注册即可。
+      defaultZone: http://${eureka.instance.ip-address}:8761/eureka/,http://${eureka.instance.ip-address}:8762/eureka/
+    fetch-registry: true    # 检索服务，默认为true
+    eureka-connection-idle-timeout-seconds: 30  # Eureka服务端连接空闲关闭时间， 单位，秒
+    eureka-server-total-connections: 200  # 从Eureka客户端所有Eureka服务端的连接总数
+    eureka-server-total-connections-per-host: 50 #从 Eureka 客户端到每个Eureka服务主机的连接总数
+    register-with-eureka: false  # Eureka-Server不让它在注册中心注册显示（自注册）
