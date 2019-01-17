@@ -4,6 +4,7 @@ import com.loiter.product.module.ProductCategory;
 import com.loiter.product.module.ProductInfo;
 import com.loiter.product.service.ProductCategoryService;
 import com.loiter.product.service.ProductService;
+import com.loiter.product.utils.ResultVOUtils;
 import com.loiter.product.vo.ProdectInfoVO;
 import com.loiter.product.vo.ProductVO;
 import com.loiter.product.vo.ResultVO;
@@ -69,10 +70,6 @@ public class ProductController {
             productVOS.add(productVO);
         }
 
-        ResultVO resultVO = new ResultVO();
-        resultVO.setData(productVOS);
-        resultVO.setCode(0);
-        resultVO.setMsg("成功");
-        return resultVO;
+        return ResultVOUtils.success(productVOS);
     }
 }
