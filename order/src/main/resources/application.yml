@@ -1,0 +1,19 @@
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:8761/eureka/
+  instance:
+    ip-address: 192.168.1.120
+    hostname: localhost
+spring:
+  application:
+    name: Order
+  datasource:
+    url: jdbc:mysql://${eureka.instance.hostname}:3306/springcloud?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
