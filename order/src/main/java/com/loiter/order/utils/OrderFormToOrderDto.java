@@ -18,7 +18,7 @@ import java.util.List;
  * @description: OrderFormToOrderDto
  * @author: ant-loiter
  * @date: 2019-01-18 11:45
- * 功能描述： 对象相互转换的工具类
+ * 功能描述： 对象相互转换的工具类,
  */
 @Slf4j // 引入slf4j写日志的类
 public class OrderFormToOrderDto {
