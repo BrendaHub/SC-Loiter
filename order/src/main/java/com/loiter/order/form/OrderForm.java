@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class OrderForm {
 
-    @NotEmpty(message = "姓名必填")
+    @NotEmpty(message = " 姓名必填")
     private  String name;
 
     @NotEmpty(message = "电话号码不能为空")
