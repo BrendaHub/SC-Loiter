@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 eureka:
   client:
     service-url:
@@ -17,3 +17,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
+
+## 自定义Ribbon的规则
+PRODUCT:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
